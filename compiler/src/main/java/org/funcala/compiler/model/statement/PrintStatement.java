@@ -6,17 +6,17 @@ import org.funcala.compiler.model.StatementBlock;
  * Created by feilaoda on 16/10/27.
  */
 public class PrintStatement extends Statement{
-    private String expression;
+    private ValueExpression expression;
 
-    public PrintStatement(String expression) {
+    public PrintStatement(ValueExpression expression) {
         this.expression = expression;
     }
 
-    public String getExpression() {
+    public ValueExpression getExpression() {
         return expression;
     }
 
-    public void setExpression(String expression) {
+    public void setExpression(ValueExpression expression) {
         this.expression = expression;
     }
 }

@@ -66,7 +66,7 @@ qualifiedName : NAME ('.' NAME)*;
 
 functionName: NAME;
 
-printStatement : PRINT '(' (NAME|STRING) ')' ;
+printStatement : PRINT '(' (STRING|NUMBER|NAME) ')' ;
 
 
 OP : '+'
@@ -81,7 +81,7 @@ type: 'Int'
     | 'String' ;
 
 PRINT: 'print';
-NAME : [a-zA-Z0-9_]+ ;
+NAME : [a-zA-Z_][a-zA-Z_0-9]* ;
 NUMBER : [0-9]+ ;
 WS: [ \t\n\r]+ -> skip ; //special TOKEN for skipping whitespaces
 STRING : '"'.*?'"' ;

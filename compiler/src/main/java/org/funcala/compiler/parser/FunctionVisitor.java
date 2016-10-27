@@ -7,7 +7,7 @@ import org.funcala.compiler.model.Parameter;
 import org.funcala.compiler.model.StatementBlock;
 import org.funcala.compiler.type.BasicType;
 import org.funcala.compiler.type.Type;
-import org.funcala.compiler.utils.TypeResolver;
+import org.funcala.compiler.util.TypeResolver;
 
 import java.util.ArrayList;
 import java.util.List;
