@@ -1,0 +1,14 @@
+package funcala.lang
+
+import java.lang._
+
+
+class Hello {
+    var Int a
+    var b = 10
+
+    func main() {
+            print("hello")
+        }
+
+}

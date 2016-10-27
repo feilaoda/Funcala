@@ -1,0 +1,66 @@
+package funcala.lang
+
+import java.lang._
+
+func Int add(Int a, Int b) {a+b}
+func Int add2(Int a, Int b) = a+b
+
+func Int ok(Int a) = a + 10
+
+class Hi{
+    func say() {
+        println("hi")
+    }
+}
+
+object User {
+    var Int age = 10;
+}
+
+func Int getAge() {
+    return User.age++;
+}
+
+class Hello {
+    var Int a
+    var b = 10
+    var Int[100] array = {0,0}
+    var slice = array[0:99]
+
+    var s1 = array + {2}
+    s1 = s1 + {3,5,7}
+
+    var s2 = make(Int[], 6)
+
+    func self(Int a, Int b) {
+        a+b
+    }
+
+    func hello() {
+        println("hello")
+    }
+
+    private func say(Int a) {
+        ok(a)
+    }
+
+    func Int add(Int i) {
+        add(i, a+b)
+    }
+    func Int add(Int a, Int b) = a + b
+
+    func Int add2(Int a, Int b) {
+        return a + b
+    }
+}
+
+func Int add(Int i) = new Hello(10,10).add(i)
+
+func main() {
+    var hello = new Hello(10,10)
+    var a = hello.add(5)
+    var b = add(5)
+    println(a)
+    println(b)
+}
+
