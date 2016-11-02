@@ -6,34 +6,34 @@ package org.funcala.compiler.type;
 
 public enum BasicType implements Type {
 
-    BOOLEAN("boolean",boolean.class,"Z", TypeSpecificOpcodes.INT),
-    INT("int", int.class,"I", TypeSpecificOpcodes.INT),
-    CHAR ("char", char.class,"C", TypeSpecificOpcodes.INT),
-    BYTE ("byte", byte.class,"B", TypeSpecificOpcodes.INT),
-    SHORT ("short", short.class,"S", TypeSpecificOpcodes.INT),
-    LONG ("long", long.class,"J", TypeSpecificOpcodes.LONG),
-    FLOAT ("float", float.class,"F", TypeSpecificOpcodes.FLOAT),
-    DOUBLE ("double", double.class,"D", TypeSpecificOpcodes.DOUBLE),
-    STRING ("string", String.class,"Ljava/lang/String;", TypeSpecificOpcodes.OBJECT),
-    BOOLEAN_ARR("bool[]",boolean[].class,"[B", TypeSpecificOpcodes.OBJECT),
-    INT_ARR ("int[]", int[].class,"[I", TypeSpecificOpcodes.OBJECT),
-    CHAR_ARR ("char[]", char[].class,"[C", TypeSpecificOpcodes.OBJECT),
-    BYTE_ARR ("byte[]", byte[].class,"[B", TypeSpecificOpcodes.OBJECT),
-    SHORT_ARR ("short[]", short[].class,"[S", TypeSpecificOpcodes.OBJECT),
-    LONG_ARR ("long[]", long[].class,"[J", TypeSpecificOpcodes.OBJECT),
-    FLOAT_ARR ("float[]", float[].class,"[F", TypeSpecificOpcodes.OBJECT),
-    DOUBLE_ARR ("double[]", double[].class,"[D", TypeSpecificOpcodes.OBJECT),
-    STRING_ARR ("string[]", String[].class,"[Ljava/lang/String;", TypeSpecificOpcodes.OBJECT),
-    NONE("", null,"", TypeSpecificOpcodes.OBJECT),
-    VOID("void", void.class,"V", TypeSpecificOpcodes.VOID);
+    BOOLEAN("boolean",boolean.class,"Z", TypeOpcodes.INT),
+    INT("int", int.class,"I", TypeOpcodes.INT),
+    CHAR ("char", char.class,"C", TypeOpcodes.INT),
+    BYTE ("byte", byte.class,"B", TypeOpcodes.INT),
+    SHORT ("short", short.class,"S", TypeOpcodes.INT),
+    LONG ("long", long.class,"J", TypeOpcodes.LONG),
+    FLOAT ("float", float.class,"F", TypeOpcodes.FLOAT),
+    DOUBLE ("double", double.class,"D", TypeOpcodes.DOUBLE),
+    STRING ("string", String.class,"Ljava/lang/String;", TypeOpcodes.OBJECT),
+    BOOLEAN_ARR("bool[]",boolean[].class,"[B", TypeOpcodes.OBJECT),
+    INT_ARR ("int[]", int[].class,"[I", TypeOpcodes.OBJECT),
+    CHAR_ARR ("char[]", char[].class,"[C", TypeOpcodes.OBJECT),
+    BYTE_ARR ("byte[]", byte[].class,"[B", TypeOpcodes.OBJECT),
+    SHORT_ARR ("short[]", short[].class,"[S", TypeOpcodes.OBJECT),
+    LONG_ARR ("long[]", long[].class,"[J", TypeOpcodes.OBJECT),
+    FLOAT_ARR ("float[]", float[].class,"[F", TypeOpcodes.OBJECT),
+    DOUBLE_ARR ("double[]", double[].class,"[D", TypeOpcodes.OBJECT),
+    STRING_ARR ("string[]", String[].class,"[Ljava/lang/String;", TypeOpcodes.OBJECT),
+    NONE("", null,"", TypeOpcodes.OBJECT),
+    VOID("void", void.class,"V", TypeOpcodes.VOID);
 
     private final String name;
     private final Class<?> typeClass;
     private final String descriptor;
-    private final TypeSpecificOpcodes opcodes;
+    private final TypeOpcodes opcodes;
 
 
-    BasicType(String name, Class<?> typeClass, String descriptor, TypeSpecificOpcodes opcodes) {
+    BasicType(String name, Class<?> typeClass, String descriptor, TypeOpcodes opcodes) {
         this.name = name;
         this.typeClass = typeClass;
         this.descriptor = descriptor;

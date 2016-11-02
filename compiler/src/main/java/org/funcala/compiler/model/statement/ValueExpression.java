@@ -5,7 +5,7 @@ import org.funcala.compiler.type.Type;
 /**
  * Created by feilaoda on 16/10/27.
  */
-public class ValueExpression {
+public class ValueExpression extends Expression{
     private String value;
     private Type type;
 

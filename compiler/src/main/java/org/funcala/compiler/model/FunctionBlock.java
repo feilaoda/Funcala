@@ -8,13 +8,15 @@ import java.util.List;
  * Created by feilaoda on 16/10/26.
  */
 public class FunctionBlock {
+    private ClassScope classScope;
     private String name;
     private List<Parameter> parameters;
     private Type returnType;
 
     private StatementBlock statement;
 
-    public FunctionBlock(String name, List<Parameter> parameters,  Type returnType) {
+    public FunctionBlock(ClassScope classScope, String name, List<Parameter> parameters,  Type returnType) {
+        this.classScope = classScope;
         this.name = name;
         this.parameters = parameters;
         this.returnType = returnType;
@@ -50,5 +52,13 @@ public class FunctionBlock {
 
     public void setStatement(StatementBlock statement) {
         this.statement = statement;
+    }
+
+    public ClassScope getClassScope() {
+        return classScope;
+    }
+
+    public void setClassScope(ClassScope classScope) {
+        this.classScope = classScope;
     }
 }

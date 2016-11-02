@@ -1,6 +1,7 @@
 package org.funcala.compiler.bytecode;
 
 import jdk.internal.org.objectweb.asm.MethodVisitor;
+import org.funcala.compiler.model.ClassScope;
 import org.funcala.compiler.model.StatementBlock;
 import org.funcala.compiler.model.statement.PrintStatement;
 import org.funcala.compiler.model.statement.Statement;
@@ -12,8 +13,8 @@ public class StatementBlockGenerator {
 
     StatementGenerator statementGenerator;
 
-    public StatementBlockGenerator(MethodVisitor methodVisitor) {
-        statementGenerator = new StatementGenerator(methodVisitor);
+    public StatementBlockGenerator(ClassScope classScope, MethodVisitor methodVisitor) {
+        statementGenerator = new StatementGenerator(classScope, methodVisitor);
     }
 
     public void generate(StatementBlock statement) {

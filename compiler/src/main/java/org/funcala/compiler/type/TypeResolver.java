@@ -1,4 +1,4 @@
-package org.funcala.compiler.util;
+package org.funcala.compiler.type;
 
 import org.apache.commons.lang3.StringUtils;
 import org.funcala.compiler.antlr.FuncalaParser;

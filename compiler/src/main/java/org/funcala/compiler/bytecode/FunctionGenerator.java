@@ -3,6 +3,7 @@ package org.funcala.compiler.bytecode;
 import jdk.internal.org.objectweb.asm.ClassWriter;
 import jdk.internal.org.objectweb.asm.MethodVisitor;
 import jdk.internal.org.objectweb.asm.Opcodes;
+import org.funcala.compiler.model.ClassScope;
 import org.funcala.compiler.model.FunctionBlock;
 import org.funcala.compiler.model.Parameter;
 import org.funcala.compiler.type.Type;
@@ -19,6 +20,7 @@ public class FunctionGenerator {
     private final static Logger LOGGER = LoggerFactory.getLogger(FunctionGenerator.class);
     public static final String MAIN_FUN_NAME = "main";
     private final ClassWriter classWriter;
+    ClassScope classScope;
 
     public FunctionGenerator(ClassWriter classWriter) {
         this.classWriter = classWriter;
@@ -36,11 +38,8 @@ public class FunctionGenerator {
         }
         MethodVisitor mv = classWriter.visitMethod(access, name, description, null, null);
         mv.visitCode();
-        StatementBlockGenerator statementBlockGenerator = new StatementBlockGenerator(mv);
+        StatementBlockGenerator statementBlockGenerator = new StatementBlockGenerator(function.getClassScope(), mv);
         statementBlockGenerator.generate(function.getStatement());
-//        block.accept(statementScopeGenrator);
-//        appendReturnIfNotExists(function, block,statementScopeGenrator);
-//        if(function.getReturnType())
         mv.visitInsn(Opcodes.RETURN);
         mv.visitMaxs(-1,-1);
         mv.visitEnd();

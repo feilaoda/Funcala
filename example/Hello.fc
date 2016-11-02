@@ -2,10 +2,16 @@ package funcala.lang
 
 
 class Hello {
-    var Int a = 0
-    var b = 10
     func main() {
         print("hello")
         print(10)
+    }
+
+    func hello() {
+        hi()
+    }
+
+    func hi() {
+        print("ok")
     }
 }

@@ -7,10 +7,170 @@ func Int add2(Int a, Int b) = a+b
 
 func Int ok(Int a) = a + 10
 
-class Hi{
+func <Hi> Int ok(Int a)
+
+trait HiTrait<User> {
     func say() {
-        println("hi")
+        this.hello()
     }
+}
+
+class static StaticUser extends User with Hi{
+    var Int age = 10
+
+    this() {
+        age = 20
+        say()
+    }
+}
+
+
+StaticUser.say()
+
+
+trait Hi {
+    func say() {
+        print("hi")
+    }
+}
+
+class Hello {
+    func hello() {
+        print("hello")
+    }
+}
+
+class GoodHi extends Hello with Hi{
+    var run1 = (Int x) -> x+1
+    var run2 = (Int x, Int y) -> x+y
+
+    func Int run3(Int x, Int y) {
+        return x+y
+    }
+
+    func hello() {
+        say()
+        var a = run1(10)
+        var b = run2(10,20)
+        var c = run3(20,20)
+        print(a,b,c)
+    }
+}
+
+var hi = Hi()
+hi.say()
+
+var parseInt = (x:String):Int -> x.toInt()
+var parseInt = Int (String x)->x.toInt()
+var parseInt = (String x) Int->x.toInt()
+
+var parseInt = (String s1, Int s2, Double s3) -> s1+s2+s3
+
+var parseInt = () -> x.toInt()
+
+m.map(x->x*2)
+
+func Int parseInt(String x) = (x) -> x.toInt()
+
+var runnable = () -> print("ok")
+
+
+def Runnable(Int x) = _
+
+def Runnable1(Int x, Int y)
+
+def Runnable2 = Int(Int,String) -> {}
+
+var r1 = ()->print("hello")
+
+var Runnable r2 = r1
+
+
+def S(Int) -> {}
+def F(String,String) -> {}
+def R(Int) -> {}
+def S2(s(Int)->{}) -> {s(10)}
+def S2(S) -> {}
+
+func S3(Int x) -> {x++}
+
+S2(S3)
+
+def Int S(Int,String) -> {}
+
+def Int Runnable() -> {}
+
+def Runnable = Int()->{}
+
+class Demo {
+
+    var Int x = 10
+
+    func run(Int x) {
+        print(x)
+    }
+
+    func callRun(r(Int)->{}) {
+        r(10)
+    }
+
+    func testRun() {
+        callRun(run)
+    }
+
+    func run(Runnable runner) {
+        runner(x)
+    }
+
+    func run(Runnable1 runner) {
+        runner(x, 20)
+    }
+
+    func run(Runnable2 runner) {
+        runner(x, "a")
+    }
+
+    func run(runner(Int,Int,Int)->{}) {
+        runner(x, 20, x)
+    }
+
+
+
+    func run(Int f(String,String)->{}, Int r(Int)->{}, s(Int)->{print("ok")}) {
+        f("a","b")
+        s(10)
+    }
+
+
+
+    func run(F f, R r,S s, S2 s2) {
+        f("a","b")
+        s2(s)
+    }
+
+
+
+
+
+}
+
+
+
+var demo = Demo()
+demo.run(run1)
+demo.run(run2)
+demo.x = 20
+demo.run(run1)
+demo.run(run2)
+
+var thread = Thread()
+thread.run(()->{print("helloworld"))
+
+
+func parseInt(String x) = x.toInt()
+
+func Int parseInt(String x) {
+    x.toInt()
 }
 
 object User {
@@ -37,7 +197,7 @@ class Hello {
     }
 
     func hello() {
-        println("hello")
+        print("hello")
     }
 
     private func say(Int a) {
@@ -60,7 +220,7 @@ func main() {
     var hello = new Hello(10,10)
     var a = hello.add(5)
     var b = add(5)
-    println(a)
-    println(b)
+    print(a)
+    print(b)
 }
 

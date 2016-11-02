@@ -43,15 +43,17 @@ statement: statementBlock
     | property
     | printStatement ;
 
-expression: variableReference
-    | expression OP expression
-    | expression '.' functionName '(' argumentList ')'
-    | functionName '(' argumentList ')'
-    | newClassExpression
-    | returnExpression;
+expression: varReference #VarReferenceExpression
+    | expression OP expression #OpExpression
+    | caller=expression '.' functionName '(' argumentList ')' #FunctionCallExpression
+    | functionName '(' argumentList ')' #FunctionCallExpression
+    | 'new' newClassName '(' argumentList ')' #NewCallExpression
+    | 'return' expression #ReturnExpression
+    | value # ValueExpression
+    ;
 
-newClassExpression: 'new' newClassName '(' argumentList ')';
-returnExpression: 'return' expression;
+//newClassExpression: 'new' newClassName '(' argumentList ')';
+//returnExpr: 'return' expression;
 
 argumentList : argument? (',' a=argument)*
              | namedArgument? (',' namedArgument)*  ;
@@ -66,7 +68,13 @@ qualifiedName : NAME ('.' NAME)*;
 
 functionName: NAME;
 
-printStatement : PRINT '(' (STRING|NUMBER|NAME) ')' ;
+printStatement : PRINT '(' expression ')' ;
+
+callExpression: functionName '(' argumentList ')';
+
+value : NUMBER
+      | BOOL
+      | STRING ;
 
 
 OP : '+'
@@ -74,7 +82,7 @@ OP : '+'
     | '*'
     | '/';
 
-variableReference: NAME ;
+varReference: NAME ;
 
 
 type: 'Int'
@@ -85,5 +93,6 @@ NAME : [a-zA-Z_][a-zA-Z_0-9]* ;
 NUMBER : [0-9]+ ;
 WS: [ \t\n\r]+ -> skip ; //special TOKEN for skipping whitespaces
 STRING : '"'.*?'"' ;
+BOOL : 'true' | 'false' ;
 
 modifiers: ( 'private' | 'public' );

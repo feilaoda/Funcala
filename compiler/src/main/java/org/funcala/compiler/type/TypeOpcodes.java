@@ -5,7 +5,7 @@ import static jdk.internal.org.objectweb.asm.Opcodes.*;
 /**
  * Created by feilaoda on 16/10/26.
  */
-public enum TypeSpecificOpcodes {
+public enum TypeOpcodes {
 
     INT(ILOAD, ISTORE, IRETURN,IADD,ISUB,IMUL,IDIV), //values (-127,127) - one byte.
     LONG (LLOAD, LSTORE, LRETURN,LADD,LSUB,LMUL,LDIV),
@@ -22,7 +22,7 @@ public enum TypeSpecificOpcodes {
     private final int mul;
     private final int div;
 
-    TypeSpecificOpcodes(int load, int store, int ret, int add, int sub, int mul, int div) {
+    TypeOpcodes(int load, int store, int ret, int add, int sub, int mul, int div) {
 
         this.load = load;
         this.store = store;
